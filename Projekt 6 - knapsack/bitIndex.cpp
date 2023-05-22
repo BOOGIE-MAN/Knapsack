@@ -1,3 +1,5 @@
+#include <bitset>
+
 #include "bitIndex.h"
 
 
@@ -13,7 +15,7 @@ bitIndex bitIndex::operator++(int dummy)
     return copy;
 }
 
-std::ostream& operator<< (std::ostream& os, const bitIndex& bi)
-{
-    return os << bi.indicies;
-}
+//std::ostream& operator<< (std::ostream& os, const bitIndex& bi)
+//{
+//    return os << std::bitset<32>(bi.indicies);
+//}
