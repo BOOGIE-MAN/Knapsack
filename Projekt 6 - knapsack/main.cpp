@@ -6,13 +6,14 @@
 #include "Item.h"
 #include "bitIndex.h"
 
+#define PROGRESS
 
 constexpr int size = 32;
 constexpr int weightMax = 75;
 
 std::pair<bitIndex, int> bruteforce(const std::array<Item, size>& items)
 {
-    std::cout << "poczatek obliczen...\n";
+    std::cout << "start of calculation...\n";
 
     std::pair<bitIndex, int> best;
     best.second = -1;
@@ -22,7 +23,7 @@ std::pair<bitIndex, int> bruteforce(const std::array<Item, size>& items)
     {
 #ifdef PROGRESS
         if (bi % 100'000'000 == 0)
-            std::cout << " pozostalo: " << (bitIndex::MAX_INDEX - bi) << '\n';
+            std::cout << " left: " << (bitIndex::MAX_INDEX - bi) << '\n';
 #endif
         int value = 0;
         int weight = 0;
@@ -59,12 +60,12 @@ int main()
         { 6, 14 }, { 2, 4 }, { 9, 15 }, { 5, 7 },
         { 3, 5 }, { 3, 10 }, { 4, 10 }, { 7, 13 },
         { 3, 19 }, { 5, 9 }, { 30, 8 }, { 50, 5 }
-    } };
+     } };
 
     auto[index, value] = bruteforce(items);
 
-    std::cout << "> index elementow: " << std::bitset<32>(index) << '\n'
-              << "> suma wartosci = " << value << '\n';
+    std::cout << "> indices of elems used: " << std::bitset<32>(index) << '\n'
+              << "> value sum = " << value << '\n';
 
     std::cin.get();
 }
