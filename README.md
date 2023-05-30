@@ -20,5 +20,8 @@ Program goes through all values of uint32_t in order to determin the best set of
 ## How to run it
 It can be run directly from the .exe file or through Visual Studio 2022 in any configuration.
 
+### Platform
+Windows 10
+
 ## Idea
 The project originally was written as a university project.
